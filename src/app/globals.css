@@ -30,12 +30,10 @@ body {
    These apply when window.print() is called
    ============================================= */
 @media print {
-
   /* Hide everything except the report */
-  body>* {
+  body > * {
     display: none !important;
   }
-
   #tax-report-printable {
     display: block !important;
     position: fixed;
