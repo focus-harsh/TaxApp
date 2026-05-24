@@ -119,7 +119,7 @@ export default function Home() {
       <section className="py-24 bg-slate-50 px-6">
         <div className="max-w-screen-xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-slate-900">Why choose <span className="text-blue-600">TaxWise India?</span></h2>
+            <h2 className="text-3xl font-bold text-slate-900">Why choose <span className="text-blue-600">Your Tax Calculator?</span></h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -153,7 +153,7 @@ export default function Home() {
           <div className="w-full lg:w-1/3 bg-green-50 border border-green-100 rounded-3xl p-8">
             <div className="text-green-500 text-4xl font-serif leading-none mb-4">"</div>
             <p className="text-slate-700 font-medium leading-relaxed mb-8">
-              TaxWise helped me save over ₹1.2 lakh by choosing the right tax regime. Super easy and reliable!"
+              Your Tax Calculator helped me save over ₹1.2 lakh by choosing the right tax regime. Super easy and reliable!"
             </p>
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-full bg-slate-200 overflow-hidden"><img src="https://i.pravatar.cc/100?img=11" alt="Rahul" className="w-full h-full object-cover" /></div>

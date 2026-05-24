@@ -10,13 +10,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "TaxWise India | FY 2025-26 Tax Calculator",
+  title: "Your Tax Calculator | FY 2025-26",
   description: "The simplest and most trustworthy Indian income tax calculator for salaried employees. Compare Old vs New regimes instantly.",
   openGraph: {
-    title: "TaxWise India",
+    title: "Your Tax Calculator",
     description: "Find out which tax regime saves you more money in 2 minutes.",
-    url: "https://taxwise.india",
-    siteName: "TaxWise India",
+    url: "https://yourtaxcalculator.in",
+    siteName: "Your Tax Calculator",
     images: [
       {
         url: "/og-image.png",

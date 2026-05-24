@@ -134,7 +134,7 @@ export default function ResultsSummary() {
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>TaxWise India – Tax Report FY 2025-26</title>
+  <title>Your Tax Calculator – Tax Report FY 2025-26</title>
   <style>
     body { font-family: Arial, sans-serif; color: #0f172a; background: #f8fafc; margin: 0; padding: 24px; }
     h1 { font-size: 26px; font-weight: 800; margin-bottom: 4px; }
@@ -159,7 +159,7 @@ export default function ResultsSummary() {
 </head>
 <body>
   <h1>Your Tax Report</h1>
-  <p class="sub">TaxWise India &bull; FY 2025-26 (AY 2026-27) &bull; Generated ${new Date().toLocaleDateString('en-IN')}</p>
+  <p class="sub">Your Tax Calculator &bull; FY 2025-26 (AY 2026-27) &bull; Generated ${new Date().toLocaleDateString('en-IN')}</p>
 
   <div class="save-card">
     <div class="save-label">${winner === 'new' ? '✅ New Regime is Better — You Save' : '✅ Old Regime is Better — You Save'}</div>

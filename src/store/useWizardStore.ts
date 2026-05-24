@@ -164,7 +164,7 @@ export const useWizardStore = create<WizardState>()(
     set((state) => ({ otherDeductions: { ...state.otherDeductions, ...newOther } })),
     }),
     {
-      name: 'taxwise-storage', // name of the item in the storage (must be unique)
+      name: 'your-tax-calculator-storage', // name of the item in the storage (must be unique)
     }
   )
 );

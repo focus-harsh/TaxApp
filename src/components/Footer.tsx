@@ -3,7 +3,7 @@ export default function Footer() {
     <footer className="bg-white border-t border-slate-200 mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
         <p className="text-sm text-slate-500">
-          © {new Date().getFullYear()} TaxWise India. For educational purposes only.
+          © {new Date().getFullYear()} Your Tax Calculator. For educational purposes only.
         </p>
         <div className="flex items-center gap-2 text-sm text-slate-500">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-emerald-500" viewBox="0 0 20 20" fill="currentColor">
