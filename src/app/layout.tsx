@@ -38,8 +38,39 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${inter.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col font-sans">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  const stored = localStorage.getItem('your-tax-calculator-theme');
+                  let isDark = false;
+                  if (stored) {
+                    const parsed = JSON.parse(stored);
+                    if (parsed && parsed.state) {
+                      const theme = parsed.state.theme;
+                      if (theme === 'dark') {
+                        isDark = true;
+                      }
+                    }
+                  } else {
+                    isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                  }
+                  if (isDark) {
+                    document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                  }
+                } catch (_) {}
+              })();
+            `
+          }}
+        />
+      </head>
+      <body className="min-h-full flex flex-col font-sans transition-colors duration-300 dark:bg-[#0b0f19] dark:text-[#f8fafc]">
         <Header />
         <div className="flex-grow flex flex-col">
           {children}

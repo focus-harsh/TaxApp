@@ -194,10 +194,10 @@ export default function ResultsSummary() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col p-6 md:p-12">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#0b0f19] flex flex-col p-6 md:p-12 transition-colors duration-300">
       <div className="max-w-5xl mx-auto w-full">
         <div className="mb-8">
-          <Link href="/wizard" onClick={(e) => { e.preventDefault(); window.location.reload(); }} className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors flex items-center gap-1 inline-flex">
+          <Link href="/wizard" onClick={(e) => { e.preventDefault(); window.location.reload(); }} className="text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1 inline-flex">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
@@ -206,21 +206,21 @@ export default function ResultsSummary() {
         </div>
 
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">Your Tax Report</h1>
-          <p className="text-xl text-slate-500 max-w-2xl mx-auto">Based on the details provided for FY 2025-26, here is our smart analysis and recommendation for you.</p>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4">Your Tax Report</h1>
+          <p className="text-xl text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">Based on the details provided for FY 2025-26, here is our smart analysis and recommendation for you.</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Left Column: Charts & Overview */}
           <div className="lg:col-span-1 space-y-6">
             {/* Premium Bar Chart */}
-            <div className="bg-white rounded-3xl p-6 border border-slate-100 shadow-md">
-              <h3 className="text-sm font-bold text-slate-500 uppercase tracking-widest mb-5 text-center">Tax Liability Comparison</h3>
+            <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-100 dark:border-slate-800/80 shadow-md transition-colors duration-300">
+              <h3 className="text-sm font-bold text-slate-500 dark:text-slate-450 uppercase tracking-widest mb-5 text-center">Tax Liability Comparison</h3>
 
               {/* Savings callout */}
               {savings > 0 && (
-                <div className={`rounded-2xl px-4 py-3 mb-5 text-center text-sm font-bold ${
-                  winner === 'new' ? 'bg-blue-50 text-blue-700' : 'bg-emerald-50 text-emerald-700'
+                <div className={`rounded-2xl px-4 py-3 mb-5 text-center text-sm font-bold transition-colors ${
+                  winner === 'new' ? 'bg-blue-50 dark:bg-blue-950/20 text-blue-700 dark:text-blue-300' : 'bg-emerald-50 dark:bg-emerald-950/20 text-emerald-700 dark:text-emerald-300'
                 }`}>
                   You save <span className="text-lg">₹{savings.toLocaleString('en-IN')}</span> with {winner === 'new' ? 'New' : 'Old'} Regime
                 </div>
@@ -229,20 +229,20 @@ export default function ResultsSummary() {
               <div className="flex justify-center items-end gap-6 mb-4" style={{ height: '180px' }}>
                 {/* Old Regime Bar */}
                 <div className="flex flex-col items-center gap-0 w-24">
-                  <div className="text-xs font-bold text-slate-700 mb-1">₹{oldTax.toLocaleString('en-IN')}</div>
-                  <div className="w-full rounded-t-xl overflow-hidden flex items-end bg-slate-100" style={{ height: '150px' }}>
+                  <div className="text-xs font-bold text-slate-700 dark:text-slate-350 mb-1">₹{oldTax.toLocaleString('en-IN')}</div>
+                  <div className="w-full rounded-t-xl overflow-hidden flex items-end bg-slate-100 dark:bg-slate-800" style={{ height: '150px' }}>
                     <div
                       className="w-full rounded-t-xl transition-all duration-1000 ease-out"
                       style={{
                         height: `${oldHeight}%`,
                         background: winner === 'old'
                           ? 'linear-gradient(to top, #059669, #34d399)'
-                          : 'linear-gradient(to top, #94a3b8, #cbd5e1)'
+                          : 'linear-gradient(to top, #64748b, #94a3b8)'
                       }}
                     />
                   </div>
-                  <div className={`mt-2 text-center px-2 py-1 rounded-lg text-[11px] font-bold ${
-                    winner === 'old' ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-500'
+                  <div className={`mt-2 text-center px-2 py-1 rounded-lg text-[11px] font-bold transition-colors ${
+                    winner === 'old' ? 'bg-emerald-100 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400' : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-450'
                   }`}>
                     Old Regime
                     {winner === 'old' && <span className="ml-1">✓</span>}
@@ -251,20 +251,20 @@ export default function ResultsSummary() {
 
                 {/* New Regime Bar */}
                 <div className="flex flex-col items-center gap-0 w-24">
-                  <div className="text-xs font-bold text-blue-700 mb-1">₹{newTax.toLocaleString('en-IN')}</div>
-                  <div className="w-full rounded-t-xl overflow-hidden flex items-end bg-blue-50" style={{ height: '150px' }}>
+                  <div className="text-xs font-bold text-blue-700 dark:text-blue-400 mb-1">₹{newTax.toLocaleString('en-IN')}</div>
+                  <div className="w-full rounded-t-xl overflow-hidden flex items-end bg-blue-50 dark:bg-blue-950/10" style={{ height: '150px' }}>
                     <div
                       className="w-full rounded-t-xl transition-all duration-1000 ease-out"
                       style={{
                         height: `${newHeight}%`,
                         background: winner === 'new'
                           ? 'linear-gradient(to top, #2563eb, #60a5fa)'
-                          : 'linear-gradient(to top, #93c5fd, #bfdbfe)'
+                          : 'linear-gradient(to top, #3b82f6, #93c5fd)'
                       }}
                     />
                   </div>
-                  <div className={`mt-2 text-center px-2 py-1 rounded-lg text-[11px] font-bold ${
-                    winner === 'new' ? 'bg-blue-100 text-blue-700' : 'bg-blue-50 text-blue-400'
+                  <div className={`mt-2 text-center px-2 py-1 rounded-lg text-[11px] font-bold transition-colors ${
+                    winner === 'new' ? 'bg-blue-100 dark:bg-blue-950/30 text-blue-700 dark:text-blue-400' : 'bg-blue-50 dark:bg-blue-950/10 text-blue-400 dark:text-blue-500'
                   }`}>
                     New Regime
                     {winner === 'new' && <span className="ml-1">✓</span>}
@@ -273,32 +273,32 @@ export default function ResultsSummary() {
               </div>
 
               {/* Effective rate row */}
-              <div className="mt-4 grid grid-cols-2 gap-3 border-t border-slate-100 pt-4">
+              <div className="mt-4 grid grid-cols-2 gap-3 border-t border-slate-100 dark:border-slate-800/80 pt-4">
                 <div className="text-center">
-                  <p className="text-[10px] text-slate-400 uppercase tracking-wider">Effective Rate</p>
-                  <p className="text-base font-extrabold text-slate-700">
+                  <p className="text-[10px] text-slate-400 dark:text-slate-500 uppercase tracking-wider">Effective Rate</p>
+                  <p className="text-base font-extrabold text-slate-700 dark:text-slate-350">
                     {estimatedGross > 0 ? ((oldTax / estimatedGross) * 100).toFixed(1) : '0.0'}%
                   </p>
                 </div>
                 <div className="text-center">
-                  <p className="text-[10px] text-slate-400 uppercase tracking-wider">Effective Rate</p>
-                  <p className="text-base font-extrabold text-blue-600">
+                  <p className="text-[10px] text-slate-400 dark:text-slate-500 uppercase tracking-wider">Effective Rate</p>
+                  <p className="text-base font-extrabold text-blue-600 dark:text-blue-400">
                     {estimatedGross > 0 ? ((newTax / estimatedGross) * 100).toFixed(1) : '0.0'}%
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
-              <h3 className="text-lg font-bold text-slate-900 mb-4">Input Summary</h3>
+            <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-800/80 shadow-sm transition-colors duration-300">
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4">Input Summary</h3>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-slate-500">Gross Salary</span>
-                  <span className="font-semibold text-slate-800">₹{estimatedGross.toLocaleString('en-IN')}</span>
+                  <span className="text-slate-500 dark:text-slate-400">Gross Salary</span>
+                  <span className="font-semibold text-slate-800 dark:text-slate-200">₹{estimatedGross.toLocaleString('en-IN')}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-500">Total Deductions (Old)</span>
-                  <span className="font-semibold text-slate-800">₹{currentOldDeductions.total.toLocaleString('en-IN')}</span>
+                  <span className="text-slate-500 dark:text-slate-400">Total Deductions (Old)</span>
+                  <span className="font-semibold text-slate-800 dark:text-slate-200">₹{currentOldDeductions.total.toLocaleString('en-IN')}</span>
                 </div>
               </div>
             </div>
@@ -306,7 +306,7 @@ export default function ResultsSummary() {
 
           {/* Right Column: Recommendations */}
           <div className="lg:col-span-2 space-y-6">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-amber-500" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z" />
               </svg>
@@ -316,20 +316,20 @@ export default function ResultsSummary() {
             <div className="grid gap-4">
               {recommendations.map((rec, idx) => {
                 const colors = {
-                  indigo: 'bg-blue-50 border-blue-200 text-blue-900',
-                  emerald: 'bg-emerald-50 border-emerald-200 text-emerald-900',
-                  amber: 'bg-amber-50 border-amber-200 text-amber-900',
-                  blue: 'bg-blue-50 border-blue-200 text-blue-900',
+                  indigo: 'bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-900/30 text-blue-900 dark:text-blue-200',
+                  emerald: 'bg-emerald-50 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-900/30 text-emerald-900 dark:text-emerald-200',
+                  amber: 'bg-amber-50 dark:bg-amber-950/20 border-amber-200 dark:border-amber-900/30 text-amber-900 dark:text-amber-200',
+                  blue: 'bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-900/30 text-blue-900 dark:text-blue-200',
                 };
                 const iconColors = {
-                  indigo: 'text-blue-500',
-                  emerald: 'text-emerald-500',
-                  amber: 'text-amber-500',
-                  blue: 'text-blue-500',
+                  indigo: 'text-blue-500 dark:text-blue-400',
+                  emerald: 'text-emerald-500 dark:text-emerald-400',
+                  amber: 'text-amber-500 dark:text-amber-400',
+                  blue: 'text-blue-500 dark:text-blue-400',
                 };
 
                 return (
-                  <div key={idx} className={`p-6 rounded-3xl border-2 shadow-sm ${colors[rec.color as keyof typeof colors]}`}>
+                  <div key={idx} className={`p-6 rounded-3xl border-2 shadow-sm transition-colors ${colors[rec.color as keyof typeof colors]}`}>
                     <div className="flex gap-4">
                       <div className="flex-shrink-0 mt-1">
                         {rec.type === 'winner' && (
@@ -358,14 +358,14 @@ export default function ResultsSummary() {
               })}
             </div>
             
-            <div className="mt-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-3xl p-8 text-center shadow-xl">
+            <div className="mt-12 bg-gradient-to-br from-blue-600 to-blue-700 dark:from-blue-700 dark:to-blue-800 rounded-3xl p-8 text-center shadow-xl">
               <div className="text-3xl mb-3">📄</div>
               <h3 className="text-xl font-bold text-white mb-2">Ready to file your returns?</h3>
               <p className="text-blue-100 text-sm mb-6">Download a clean PDF copy of this report to share with your CA or keep for records.</p>
               <div className="flex justify-center gap-4">
                 <button
                   onClick={handlePrintReport}
-                  className="px-7 py-3 bg-white text-blue-700 font-bold rounded-xl hover:bg-blue-50 transition-all flex items-center gap-2 shadow-md hover:-translate-y-0.5"
+                  className="px-7 py-3 bg-white dark:bg-slate-900 text-blue-700 dark:text-blue-400 font-bold rounded-xl hover:bg-blue-50 dark:hover:bg-slate-800 transition-all flex items-center gap-2 shadow-md hover:-translate-y-0.5"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
                   Download PDF Report
